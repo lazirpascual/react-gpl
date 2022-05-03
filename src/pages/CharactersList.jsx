@@ -1,6 +1,7 @@
 import React from "react";
 import "./CharacterList.css";
 import { useCharacters } from "../hooks/useCharacters";
+import { Link } from "react-router-dom";
 
 const CharactersList = () => {
   // error is populated and can be caught when encounter an error
@@ -16,8 +17,10 @@ const CharactersList = () => {
     <div className="CharacterList">
       {data.characters.results.map((character) => (
         <div key={character.id}>
-          <img src={character.image} />
-          <h2>{character.name}</h2>
+          <Link to={character.id}>
+            <img src={character.image} />
+            <h2>{character.name}</h2>
+          </Link>
         </div>
       ))}
     </div>
